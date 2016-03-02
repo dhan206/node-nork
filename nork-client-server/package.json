@@ -1,0 +1,28 @@
+{
+  "name": "nork-client-server",
+  "version": "1.0.0",
+  "description": "Nork game architectured using client and server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dhan206/arch-nork.git"
+  },
+  "keywords": [
+    "client",
+    "server",
+    "nork"
+  ],
+  "author": "Derek Han",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dhan206/arch-nork/issues"
+  },
+  "homepage": "https://github.com/dhan206/arch-nork#readme",
+  "dependencies": {
+    "lodash": "^3.10.1"
+  }
+}
