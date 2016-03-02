@@ -38,13 +38,15 @@ var checkStatus = function(socket, currRoom, action) {
 
 //listens for connection from a socket
 server.on('connection', function(socket) {
-    var currRoom = world.rooms[0]; //currentRoom initiated with first room in world
-    var inventory = []; //inventory of items
+    var currRoom; //currentRoom initiated with first room in world
+    var inventory; //inventory of items
     
     //listens for data input from the socket
     socket.on('data', function(data) {
         var echo = data.toString().toLowerCase(); //formats the input
-        if (echo === "gamestart") { //initial input from socket
+        if (echo === "gamestart") { //initial input from socket, restarts game
+            currRoom = world.rooms[0];
+            inventory = [];
             socket.write(currRoom.id + "\n" + currRoom.description);
         } else if (echo === 'inventory') { //'inventory' command
             socket.write("Your inventory: [" + inventory + "]");
