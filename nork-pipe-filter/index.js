@@ -1,8 +1,8 @@
 'use strict';
 
-var world = require('../common/world');
-var stream = require('stream');
-var _ = require('lodash');
+var world = require('../common/world'); //requires world
+var stream = require('stream'); //requires stream
+var _ = require('lodash'); //requires lodash
 
 //takes in an array and value as parameters, returns whether or not
 //the array contains the value.
@@ -40,6 +40,7 @@ var first = function() {
     process.stdout.write(currRoom.id + "\n\n" + currRoom.description + "\n> ");
 }
 
+//the input stream that handles user input
 var inputStream = new stream.Transform({
     transform(chunk, encoding, done) {
         var echo = chunk.toString().toLowerCase().trim();
@@ -52,6 +53,7 @@ var inputStream = new stream.Transform({
     }
 })
 
+//the game stream that handles the game logic
 var gameStream = new stream.Transform({
     transform(chunk, encoding, done) {
         var command = '';
@@ -113,10 +115,11 @@ var gameStream = new stream.Transform({
     }
 })
 
+//the output stream that writes the data to standard out
 var outputStream = new stream.Transform({
     transform(chunk, encode, done) {
         process.stdout.write(chunk + "\n> ");
-        (currRoom.status !== undefined ? process.exit() : null);
+        currRoom.status === undefined ? null : process.exit();
         done();
     },
     
@@ -125,6 +128,5 @@ var outputStream = new stream.Transform({
     }
 })
 
-first();
-
+first(); //show the first room description
 process.stdin.pipe(inputStream).pipe(gameStream).pipe(outputStream);
