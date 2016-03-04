@@ -21,7 +21,7 @@ The below questions should be answered (in detail!) regarding your submission!
 > The kinds of changes that would be easy to change while using the client-server style are game functionality and multiplayer functionality. Using the pipe-filter style, adding different languages, formatting the text-interface, and other functionality that can be added by piping the data through a filter.
 
 ##### 3. Did you add an extra features to either version of your game? If so, what?
-> Answer goes here!
+> No.
 
 
 
